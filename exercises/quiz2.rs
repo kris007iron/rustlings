@@ -20,8 +20,6 @@
 //
 // No hints this time!
 
-// I AM NOT DONE
-
 pub enum Command {
     Uppercase,
     Trim,
@@ -39,13 +37,18 @@ mod my_module {
             // TODO: Complete the function body. You can do it!
             match command {
                 Command::Uppercase => {
-
+                    output.push(string.to_uppercase());
                 }
                 Command::Trim => {
-
+                    output.push(string.trim().to_string());
                 }
                 Command::Append(t) => {
-
+                    //t is how much bar to append
+                    let mut bar = String::new();
+                    for _ in 0..*t {
+                        bar.push_str("bar");
+                    }
+                    output.push(string.to_string() + &bar);
                 }
             }
         }
@@ -56,8 +59,8 @@ mod my_module {
 #[cfg(test)]
 mod tests {
     // TODO: What do we need to import to have `transformer` in scope?
-    use crate::my_module::transformer;
     use super::Command;
+    use crate::my_module::transformer;
 
     #[test]
     fn it_works() {
